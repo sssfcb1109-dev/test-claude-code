@@ -447,6 +447,223 @@ def section7(story):
         story.append(Paragraph(f"{i}.  {text}", BODY))
         story.append(Spacer(1, 0.1*cm))
 
+# ── Section 8 — Paid vs Free ──────────────────────────────────────────────────
+
+def section8(story):
+    story.append(PageBreak())
+    story.append(section_header("8.  Paid vs. Free User Breakdown"))
+    story.append(Spacer(1, 0.3*cm))
+    story.append(Paragraph(
+        "Despite the explosive growth of AI user counts, the vast majority of users remain on "
+        "free tiers. Monetisation — converting curious free users into paying subscribers — "
+        "remains the central challenge for AI platforms in 2026.",
+        BODY))
+
+    story.append(Paragraph("Paid Subscriber Market Share (Recon Analytics, Jan 2026)", H2))
+    story.append(data_table(
+        ["Platform", "Paid Share", "Est. Paid Users", "Price (entry)"],
+        [
+            ["ChatGPT (OpenAI)",  "55.2 %", "~15 M+ paying",        "$20/mo (Plus)"],
+            ["Google Gemini",     "15.7 %", "Not disclosed",         "$19.99/mo (AI Pro)"],
+            ["Microsoft Copilot","11.5 %",  "~15 M M365 seats",     "$30/user/mo"],
+            ["All Others",        "17.6 %", "—",                     "Various"],
+        ],
+        col_widths=[4.5*cm, 3*cm, 4*cm, 6.3*cm]
+    ))
+    story.append(Paragraph("Source: Recon Analytics Paid AI Subscriber Report, January 2026.", SOURCE))
+    story.append(Spacer(1, 0.2*cm))
+
+    story.append(Paragraph("Per-Platform Paid vs. Free Detail", H2))
+    story.append(data_table(
+        ["Platform", "Free Users (~%)", "Paid Users (~%)", "Key Notes"],
+        [
+            ["ChatGPT",           "~81 %", "~19 %*",
+             "Plus $20/mo · Pro $200/mo · 5M biz users; *among engaged users"],
+            ["Google Gemini",     ">95 %",  "<5 %",
+             "AI Pro $19.99/mo · AI Ultra $249.99/mo; no public paid count"],
+            ["Anthropic Claude",  "~90 %+", "<10 %",
+             "Pro $20 · Max5× $100 · Max20× $200; 300K+ biz customers"],
+            ["Microsoft Copilot", "96.7 %", "3.3 %",
+             "3.3% of M365 seats convert to paid Copilot (Feb 2026 earnings)"],
+        ],
+        col_widths=[3.5*cm, 3*cm, 3*cm, 8.3*cm]
+    ))
+    story.append(Spacer(1, 0.2*cm))
+
+    story.append(Paragraph("Free-to-Paid Conversion Benchmarks", H2))
+    story.append(data_table(
+        ["Model / Platform", "Conversion Rate", "Context"],
+        [
+            ["Cursor AI",                  "36 %",  "360K paying / 1M users — fastest-growing SaaS ever"],
+            ["Free trial (with card)",     "~43 %", "Industry average — credit card required"],
+            ["Free trial (no card)",       "~14 %", "Industry average — no card barrier"],
+            ["SaaS free trials (broad)",   "~29 %", "Cross-industry benchmark"],
+            ["Freemium model (general)",   "~4.2 %","Typical for mass-market freemium"],
+            ["GitHub Copilot",             "3.1 %", "4.7M paid / 150M GitHub users"],
+            ["Microsoft M365 Copilot",     "3.3 %", "15M paid / 450M M365 seats"],
+            ["ChatGPT (all weekly actives)","~1.7 %","~15M paid / 900M weekly actives"],
+        ],
+        col_widths=[5.5*cm, 3.5*cm, 8.8*cm]
+    ))
+    story.append(Paragraph(
+        "Sources: Backlinko ChatGPT Statistics 2026; The Register (Microsoft earnings); "
+        "GetPanto GitHub Copilot Statistics; RevenueCat State of Subscription Apps 2026.",
+        SOURCE))
+    story.append(Spacer(1, 0.2*cm))
+
+    story.append(kpi_table([
+        ("$8.90/mo", "ChatGPT Blended\nARPU (+19 % YoY)"),
+        ("$25 B", "OpenAI Annualised\nRevenue (Feb 2026)"),
+        ("~$3 B → $14 B", "Anthropic ARR\n(2025 → 2026 est.)"),
+    ]))
+
+
+# ── Section 9 — AI Coding Tools ───────────────────────────────────────────────
+
+def section9(story):
+    story.append(Spacer(1, 0.4*cm))
+    story.append(section_header("9.  AI Coding Assistants"))
+    story.append(Spacer(1, 0.3*cm))
+    story.append(Paragraph(
+        "The AI coding assistant market has become one of the most competitive segments in "
+        "the AI industry. <b>62 % of professional developers</b> now use an AI coding tool; "
+        "<b>41 % of all code written in 2025</b> was AI-generated or AI-assisted. "
+        "The market is valued at <b>$6.8–$7.4 B</b> in 2025 and projected to reach "
+        "<b>$30 B by 2032</b>.",
+        BODY))
+
+    story.append(data_table(
+        ["Tool", "Users / Scale", "ARR (2026)", "Market Share", "\"Most Loved\""],
+        [
+            ["GitHub Copilot\n(Microsoft)",
+             "20M cumulative users\n4.7M paid subscribers",
+             "$1 B+",    "~42 %", "9 %"],
+            ["Cursor AI\n(Anysphere)",
+             "1M+ DAU\n360K paying (36% CVR)",
+             "$2 B+",    "~18 %", "19 %"],
+            ["Claude Code\n(Anthropic)",
+             "#1 most-used agent\n71% of agentic-AI devs",
+             "$1–2.5 B", "Top 3", "46 %"],
+            ["Windsurf\n(Cognition AI)",
+             "1M+ active users\n350+ enterprise customers",
+             "$82 M*",   "Small", "—"],
+            ["Replit AI",
+             "35–40M total users\n750K businesses",
+             "$265 M",   "~5 %",  "—"],
+            ["Amazon Q Developer",
+             "Not disclosed\n50K Accenture devs",
+             "N/A",      "~4 %",  "—"],
+            ["Tabnine",
+             "1M+ users",
+             "N/A",      "~1–5 %","—"],
+        ],
+        col_widths=[3.8*cm, 5.2*cm, 2.5*cm, 2.8*cm, 3.5*cm]
+    ))
+    story.append(Paragraph(
+        "* Acquired by Cognition AI (July 2025) for ~$250M; Google licensed tech for ~$2.4B. "
+        "\"Most Loved\" from Pragmatic Engineer Survey (15K devs, Feb 2026). "
+        "Sources: GetPanto; TechCrunch; Gradually.ai Claude Code Statistics 2026.",
+        SOURCE))
+    story.append(Spacer(1, 0.2*cm))
+
+    story.append(Paragraph("Claude Code Highlights", H2))
+    story.append(Paragraph(
+        "• Launched as limited preview Feb 2025; GA May 2025. Reached "
+        "<b>$1 B annualised revenue faster than any AI coding tool in history</b>.", BULLET))
+    story.append(Paragraph(
+        "• <b>46 % \"most loved\" rating</b> — far ahead of Cursor (19 %) and "
+        "GitHub Copilot (9 %) among 15,000 surveyed developers.", BULLET))
+    story.append(Paragraph(
+        "• <b>95 % first-try code correctness</b> — highest among tested AI coding agents.", BULLET))
+    story.append(Paragraph(
+        "• Used internally at Microsoft, Google, and OpenAI.", BULLET))
+    story.append(Paragraph(
+        "• Accounts for <b>~10 % of Anthropic's total revenue</b>; estimated $2–2.5 B run rate "
+        "by early 2026.", BULLET))
+
+
+# ── Section 10 — Other AI Tools ───────────────────────────────────────────────
+
+def section10(story):
+    story.append(Spacer(1, 0.4*cm))
+    story.append(section_header("10.  Other AI Tools: Image, Video, Audio & Productivity"))
+    story.append(Spacer(1, 0.3*cm))
+
+    story.append(Paragraph("Image Generation", H2))
+    story.append(data_table(
+        ["Tool", "Users / Scale", "Revenue (2025)", "Market Share"],
+        [
+            ["Midjourney",
+             "19–21M registered; 1.2–2.5M DAU",
+             "~$500M",  "26.8 %"],
+            ["DALL-E (OpenAI)",
+             "916M images created (cumul. 2024)",
+             "via ChatGPT", "24.4 %"],
+            ["Stable Diffusion\n(open source)",
+             "12.59B images total (80% of all AI images)\n10M+ users across platforms",
+             "N/A (open)", "Dominant\n(OS ecosystem)"],
+            ["Adobe Firefly",
+             "24B assets generated by May 2025\n75% of Fortune 500",
+             "$400M\n(2024–25)", "Enterprise\nleader"],
+        ],
+        col_widths=[3.8*cm, 5.5*cm, 3*cm, 5.5*cm]
+    ))
+    story.append(Paragraph(
+        "Sources: DemandSage Midjourney Statistics 2026; Quantumrun Stable Diffusion & Adobe Firefly Stats.", SOURCE))
+    story.append(Spacer(1, 0.2*cm))
+
+    story.append(Paragraph("Video & Audio AI", H2))
+    story.append(data_table(
+        ["Tool", "Users / Scale", "Revenue / Valuation", "Notes"],
+        [
+            ["Runway ML",
+             "300K customers\n(all major film studios)",
+             "$300M rev\n$5.3B valuation",
+             "Gen-4.5 = #1 Video Arena; raised $308M Apr 2025"],
+            ["OpenAI Sora",
+             "~3.3M downloads; 8M+ videos",
+             "Shut down\nMar 24, 2026",
+             "Unsustainable GPU costs; compute reallocated to GPT-5"],
+            ["ElevenLabs\n(Audio AI)",
+             "1M+ users; 250K+ AI agents\n60% of Fortune 500",
+             "$100M ARR\n$11B valuation",
+             "Raised $500M Feb 2026; 70+ languages; IPO targeted"],
+        ],
+        col_widths=[3.5*cm, 4.5*cm, 3.8*cm, 6*cm]
+    ))
+    story.append(Paragraph(
+        "Sources: Sacra Runway; Fueler ElevenLabs Statistics 2026; VO3 AI Sora Shutdown Report.", SOURCE))
+    story.append(Spacer(1, 0.2*cm))
+
+    story.append(Paragraph("Productivity & Companion AI", H2))
+    story.append(data_table(
+        ["Tool", "Users", "Revenue", "Notes"],
+        [
+            ["Grammarly AI",
+             "30–40M DAU; 70K orgs\n96% of Fortune 500",
+             "$700M ARR",
+             "GrammarlyGO powered by GPT-4 + Claude; $13B valuation"],
+            ["Notion AI",
+             "100M total users\n4M+ paying",
+             "$400M (2024)",
+             "5× growth since 2022; AI bundled into Business/Enterprise plans"],
+            ["Character.AI",
+             "~20M MAU\n194M website visitors/mo",
+             "$32M (2024)",
+             "17min avg session (2× ChatGPT); 51% aged 18–24"],
+            ["Replika\n(AI companion)",
+             "30M registered\n~2M MAU",
+             "~$24M (2024)",
+             "70% users report reduced loneliness; 2.7 hrs/day avg engagement"],
+        ],
+        col_widths=[3.5*cm, 4.5*cm, 2.8*cm, 7*cm]
+    ))
+    story.append(Paragraph(
+        "Sources: ElectroIQ Grammarly Statistics; Super.so Notion Statistics 2026; "
+        "DemandSage Character.AI Statistics; NikolaRoza Replika Statistics 2026.",
+        SOURCE))
+
+
 # ── Sources ────────────────────────────────────────────────────────────────────
 
 def sources_page(story):
@@ -474,6 +691,23 @@ def sources_page(story):
         "SEOProfy – 60 Perplexity AI Statistics 2026",
         "Netguru – AI Adoption Statistics 2026",
         "Vention Teams – State of AI 2026 Report",
+        "Backlinko – ChatGPT Statistics 2026",
+        "Recon Analytics – Paid AI Subscriber Report, January 2026",
+        "The Register – Microsoft Copilot 3.3% Conversion (February 2026)",
+        "RevenueCat – State of Subscription Apps 2026",
+        "GetPanto – GitHub Copilot Statistics 2026",
+        "TechCrunch – Cursor $2B ARR (March 2026)",
+        "Gradually.ai – Claude Code Statistics 2026",
+        "Pragmatic Engineer Survey – AI Coding Tools (15K devs, Feb 2026)",
+        "DemandSage – Midjourney Statistics 2026",
+        "Quantumrun – Adobe Firefly & Stable Diffusion Statistics 2026",
+        "Sacra – Runway ML Revenue & Valuation",
+        "Fueler – ElevenLabs Usage & Revenue 2026",
+        "VO3 AI – OpenAI Sora Shutdown Report (March 2026)",
+        "ElectroIQ – Grammarly AI Statistics",
+        "Super.so – Notion Statistics 2026",
+        "DemandSage – Character.AI Statistics 2026",
+        "NikolaRoza – Replika AI Statistics 2026",
     ]
     for s in srcs:
         story.append(Paragraph(f"• {s}", SOURCE))
@@ -507,6 +741,9 @@ def build():
     section6(story)
     story.append(Spacer(1, 0.3*cm))
     section7(story)
+    section8(story)
+    section9(story)
+    section10(story)
     sources_page(story)
 
     doc.build(story)
